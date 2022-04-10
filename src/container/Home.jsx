@@ -18,7 +18,7 @@ const Home = () => {
   const userInfo = fetchUser();
 
   useEffect(async () => {
-    const userRef = doc(db, "users/" + userInfo.googleId);
+    const userRef = doc(db, "users/" + userInfo?.googleId);
     const userSnap = await getDoc(userRef);
     if (userSnap.exists()) {
       setUser({ ...userSnap.data(), _id: userSnap.id });
